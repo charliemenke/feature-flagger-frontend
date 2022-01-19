@@ -17,7 +17,7 @@ const Features = () => {
     async function getFeatures() {
         console.log("getFeatures")
         let obj = {}
-        const resp = await axios.get("http://localhost:8080/api/features")
+        const resp = await axios.get(process.env.REACT_APP_BACKEND+"/api/features")
         for(let i = 0; i < resp.data.length; i++) {
             obj[resp.data[i].name] = resp.data[i].enabled
         }
@@ -27,7 +27,7 @@ const Features = () => {
         console.log("handleChange")
         let body = { enabled: event.target.checked }
         try {
-            const resp = await axios.put("http://localhost:8080/api/features/"+name, { enabled: event.target.checked })
+            const resp = await axios.put(process.env.REACT_APP_BACKEND+"/api/features/"+name, { enabled: event.target.checked })
             if (resp.status === 200) {
                 let obj = features
                 obj[name] = body.enabled
@@ -45,7 +45,7 @@ const Features = () => {
     const handleDelete = (name) => async (event) => {
         console.log("handleDelete");
         try {
-            const resp = await axios.delete("http://localhost:8080/api/features/"+name)
+            const resp = await axios.delete(process.env.REACT_APP_BACKEND+"/api/features/"+name)
             if (resp.status === 200) {
                 let obj = features
                 delete obj[name]
@@ -68,7 +68,7 @@ const Features = () => {
             setOpen(true)
         } else {
             try {
-                const resp = await axios.post("http://localhost:8080/api/features", { name: newFeature, enabled: false })
+                const resp = await axios.post(process.env.REACT_APP_BACKEND+"/api/features", { name: newFeature, enabled: false })
                 if (resp.status === 200) {
                     window.location.reload(false);
                 } else {
@@ -77,7 +77,6 @@ const Features = () => {
                 }
             } catch (error) {
                 setOpen(true)
-                console.log(error);
                 setMessage(error.response.data)
             }
         }
