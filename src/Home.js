@@ -5,14 +5,12 @@ class Home extends Component {
     return (
       <div>
         <h2>HELLO</h2>
-        <p>Cras facilisis urna ornare ex volutpat, et
-        convallis erat elementum. Ut aliquam, ipsum vitae
-        gravida suscipit, metus dui bibendum est, eget rhoncus nibh
-        metus nec massa. Maecenas hendrerit laoreet augue
-        nec molestie. Cum sociis natoque penatibus et magnis
-        dis parturient montes, nascetur ridiculus mus.</p>
- 
-        <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
+        <p>Feature Flagger API is a a bare bones feature flag api that currently only supports boolean based features.</p>
+        <h3>Features</h3>
+        <ul>
+          <li>List, Get, Create, Update, Delete features by name</li>
+          <li>Fast Redis database to store your features</li>
+        </ul>
       </div>
     );
   }

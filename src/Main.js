@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Home'
 import Features from './Features'
-import Contact from './Contact'
+import Docs from './Docs'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -14,7 +14,7 @@ const Main = () => (
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/features' element={<Features/>}/>
-      <Route path='/contact' element={<Contact/>}/>
+      <Route path='/docs' element={<Docs/>}/>
     </Routes>
   </main>
 )
